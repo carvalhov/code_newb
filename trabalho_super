@@ -1,0 +1,113 @@
+#include <iostream>
+ 
+using namespace std;
+ 
+struct REGprodutos{
+ int codigo; /*1, 2, 3, 4 e 5*/
+ char nome[10];
+ int quantidade;
+ char dataf;
+ char datav;
+};
+ 
+struct REGfuncionarios{
+ char nome [50];
+ int idade;
+ char sexo;
+ float salario;
+ char registro; /*CPF*/
+};
+ 
+struct REGcaixa{
+ float caixadisp;
+ float venda;
+ float saida;
+ float Lucro;
+};
+ 
+float caixadisp = 15000;
+ 
+void produtos(int qtdtot);
+ 
+void pessoal();
+ 
+void caixa();
+ 
+int main (void){
+ char data; /*xx/zz/yyyy*/
+ cout << "Qual a data de hoje?\nProve que não é um robo, mas sim um funcionário informado: " << endl;
+ cin >> data; /*xx/zz/yyyy*/
+ system("clear");
+ int op = 0;
+ while(op != 3){
+ cout << "              SUPERMIXER - SORTIDOS\n\n"  << endl;
+ cout << "Sistema de gerenciamento  - 2020" << endl;
+ cout << "1 - Configuração Estoque de produtos " << endl;
+ cout << "2 - Área de funcionário " << endl;
+ cout << "3 - Consultar saldos do caixa" << endl;
+ cout << "4 - Sair" << endl;
+ cin >> op;
+ 
+     switch(op){
+       case 1:
+       system("clear");
+       void produtos(int cadastro(), int venda);
+       break;
+ 
+       case 2:
+       system("clear");
+       void pessoal();
+       break;
+ 
+       case 3:
+       system("clear");
+       void caixa();
+       break;
+ 
+       default:
+       system("clear");
+       cout << "operação inexistente, obrigado por usar nossos serviços" << endl;
+       break;
+     }
+ }
+ system ("pause");
+ return 0;
+}
+ 
+void produtos(int qtdtot){
+int op = 0;
+cout << "1 - cadastro de produtos" << endl;
+cout << "2 - saida de produtos" << endl;
+cout << "3 - conferir o estoque de produtos" << endl;
+cin >> op;
+ switch (op){
+ case 1:
+ struct REGprodutos;
+ cout << "Digite o código: "; cin >> codigo;
+ cout << "nome: "; cin >> nome[10];
+ cout << "quantidade: "; cin >> quantidade;
+ cout << "Data de Fabricação: "; cin >> dataf;
+ cout << "Data de validade: "; cin >> datav;
+ qtdtot = qtdtot + quantidade;
+ break;
+ case 2:
+ cout << "Digite o codigo do produto: "; cin >> codigo;
+ cout << nome << endl;
+ cout << "Digite a quanidade de saída: "; cin >> quantidade;
+ cout << "Data de Fabricação: "; cin >> dataf;
+ cout << "Data de validade: "; cin >> datav;
+ qtdtot = qtdtot - quantidade;
+ break;
+  case 3:
+ cout << "Digite o codigo do produto: "; cin >> codigo;
+ cout << "Nome: " << codigo.nome << endl;
+ cout << "Qantidade: " << qtdtot;
+ cout << "Data de Fabricação: " << codigo.dataf;
+ cout << "Data de validade: " << codigo.datav;
+ break;
+ 
+ default:
+ cout << "Operação inexistente" << endl;
+ break;
+ }
+}
