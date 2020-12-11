@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <string>
  
 using namespace std;
  
@@ -113,7 +114,9 @@ cin >> op;
  cout << "Despesas: " << produtos.preco*produtos.quantidade << endl;
  cout << "caixa disponível: " << caixadisp;
  custos = produtos.preco*produtos.quantidade;
- }  
+ }  else {
+   cout << "Erro de escrita" << endl;
+ }
  escrita.close();
  break;
  }
@@ -133,6 +136,8 @@ cin >> op;
  cout <<"Receita: " << produtos.preco*produtos.quantidade << endl;
  cout <<"Caixa disponível: " << caixadisp << endl;
  vendas = produtos.preco*produtos.quantidade ;
+ } else {
+   cout << "erro de leitura" << endl;
  }
 leitura.close();
  break;
@@ -146,6 +151,8 @@ leitura.close();
  cout << "Qantidade: " << produtos.quantidade;
  cout << "Data de Fabricação: " << produtos.dataf;
  cout << "Data de validade: " << produtos.datav;
+ }else {
+   cout << "Erro de leitura" << endl;
  }
  leitura.close();
  break;
@@ -156,13 +163,15 @@ leitura.close();
 
 int pessoal() {
   system("clear");
-   std::ofstream escrita;
+  REGfuncionarios funcionarios;
+  std::ofstream escrita;
  escrita.open("Meusarquivos\\downloads\\programação\\mercado.txt", ios:: app);
  if (escrita.is_open()){
-  REGfuncionarios funcionarios;
-  cout << "CADASTRAR FUNCIONARIOS: " << endl;
-  cout << "Nome do funcionario: \n" ; cin >> funcionarios.nome;
-  cout << "Idade\n" ; cin >> funcionarios.idade; 
+
+  cout << "CADASTRAR FUNCIONARIOS: \n" << endl;
+  cout << "Nome do funcionario: \n" ; cin>> funcionarios.nome;
+  cin.getline(funcionarios.nome, 50);
+  cout << "Idade: \n" ; cin >> funcionarios.idade; 
   cout << "Qual o gênero(M OU F): " << endl;
   cin >> funcionarios.sexo;
   cout << "Defina o salario: \n" ; cin >>  funcionarios.salario;
