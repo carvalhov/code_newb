@@ -86,6 +86,7 @@ int main (void)
  
 int cadastrar() {
   system("clear");
+int quantidadeq = 0;
 REGprodutos produtos;
 int op = 0;
 cout << "1 - cadastro de produtos" << endl;
@@ -114,8 +115,9 @@ cin >> op;
  cout << "Despesas: " << produtos.preco*produtos.quantidade << endl;
  cout << "caixa disponível: " << caixadisp;
  custos = produtos.preco*produtos.quantidade;
+ quantidadeq = quantidadeq + produtos.quantidade;
  }  else {
-   cout << "Erro de escrita" << endl;
+   cout << "Erro ao abrir" << endl;
  }
  escrita.close();
  break;
@@ -136,8 +138,10 @@ cin >> op;
  cout <<"Receita: " << produtos.preco*produtos.quantidade << endl;
  cout <<"Caixa disponível: " << caixadisp << endl;
  vendas = produtos.preco*produtos.quantidade ;
+ quantidadeq = quantidadeq - produtos.quantidade;
+ 
  } else {
-   cout << "erro de leitura" << endl;
+   cout << "Erro ao abrir" << endl;
  }
 leitura.close();
  break;
@@ -146,13 +150,14 @@ leitura.close();
  ifstream leitura;
  leitura.open("Meusarquivos\\downloads\\programação\\mercado.txt");
  if (leitura.is_open()){
- cout << "Digite o codigo do produto: "; cin >> produtos.codigo;
- cout << "Nome: " << produtos.nome << endl;
- cout << "Qantidade: " << produtos.quantidade;
- cout << "Data de Fabricação: " << produtos.dataf;
- cout << "Data de validade: " << produtos.datav;
+ cout << "\nDigite o codigo do produto: ";
+ cin >> produtos.codigo;
+ cout << "\nNome: " << produtos.nome;
+ cout << "\nQantidade: " << quantidadeq;
+ cout << "\nData de Fabricação: " << produtos.dataf;
+ cout << "\nData de validade: " << produtos.datav;
  }else {
-   cout << "Erro de leitura" << endl;
+   cout << "Erro ao abrir" << endl;
  }
  leitura.close();
  break;
