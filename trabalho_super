@@ -7,8 +7,8 @@ struct REGprodutos{
  char nome[10];
  float preco;
  int quantidade;
- char dataf;
- char datav;
+ char dataf[10];
+ char datav[10];
 };
  
 struct REGfuncionarios{
@@ -16,7 +16,7 @@ struct REGfuncionarios{
  int idade;
  char sexo;
  float salario;
- char registro; /*CPF*/
+ char registro[20]; /*CPF*/
 };
  
 struct REGcaixa{
@@ -27,16 +27,19 @@ struct REGcaixa{
 };
  
 float caixadisp = 15000;
+
 int cadastrar(); 
 
 void produtos();
  
 int pessoal();
  
-int caixa();
+float caixa(float Rec, float Desp);
  
-int main (void){
+int main (void)
+{
  int op = 0;
+
  while(op != 3){
  cout << "\n\n              SUPERMIXER - SORTIDOS\n\n"  << endl;
  cout << "Sistema de gerenciamento  - 2020" << endl;
@@ -60,8 +63,11 @@ int main (void){
        break;
  
        case 3:
-       int z;
-       z = caixa();
+       float caixa(float Rec, float Desp);
+       float lucro, L;
+       lucro = L;
+       cout << "\n\ncaixa disponível: " << caixadisp;
+       cout << "\n\nlucro: " << L << endl;
        break;
  
        default:
@@ -112,7 +118,7 @@ cin >> op;
  cout <<"Receita: " << produtos.preco*produtos.quantidade << endl;
  cout <<"Caixa disponível: " << caixadisp << endl ; 
  break;
-  case 3:
+ case 3:
  cout << "Digite o codigo do produto: "; cin >> produtos.codigo;
  cout << "Nome: " << produtos.nome << endl;
  cout << "Qantidade: " << produtos.quantidade;
@@ -124,6 +130,7 @@ cin >> op;
  cout << "Operação inexistente" << endl;
  break;
   }
+  return 0;
 }
 
 
@@ -139,13 +146,20 @@ int pessoal() {
   cout << "Defina o salario: \n" ; cin >>  funcionarios.salario;
   cout << "Número do cadatro pessoal: " << endl;
   cin >> funcionarios.registro;
+  return 0;
 }
 
-int caixa(){
+float caixa(float Receita, float Despesa)
+{
+    float L;
     REGcaixa caixa;
     cout << "Caixa disponível: " << caixadisp << endl;
     cout << "Receita: " << endl; cin >> caixa.venda;
+    caixa.venda = Receita;
     cout << "Despesas: " << endl; cin >> caixa.saida;
+    caixa.saida = Despesa;
     caixa.lucro =  caixa.venda - caixa.saida;
+    L = caixa.lucro;
     cout << "Lucro = "<< caixa.lucro << endl; /*Caso seja negativo é prejuízo*/
+    return L;
     }
