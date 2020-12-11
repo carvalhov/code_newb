@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
  
 using namespace std;
  
@@ -27,14 +28,15 @@ struct REGcaixa{
 };
  
 float caixadisp = 15000;
+float custos = 0;
+float vendas = 0;
 
 int cadastrar(); 
 
-void produtos();
  
 int pessoal();
  
-float caixa(float Rec, float Desp);
+float caixa();
  
 int main (void)
 {
@@ -57,21 +59,23 @@ int main (void)
        break;
  
        case 2:
+       {
        int pessoa;
        pessoa = pessoal();
 
        break;
- 
+     }
        case 3:
-       float caixa(float Rec, float Desp);
-       float lucro, L;
-       lucro = L;
+       {
+       float L = caixa();
        cout << "\n\ncaixa disponível: " << caixadisp;
        cout << "\n\nlucro: " << L << endl;
+       cout << "Novo caixa disponível"; 
+       caixadisp = caixadisp + L;
        break;
- 
+       }
        default:
-       cout << "operação inexistente, obrigado por usar nossos serviços" << endl;
+       cout << "Obrigado por usar nossos serviços" << endl;
        break;
      }
  }
@@ -89,6 +93,10 @@ cout << "3 - conferir o estoque de produtos" << endl;
 cin >> op;
  switch (op){
  case 1:
+ {
+ std::ofstream escrita;
+ escrita.open("Meusarquivos\\downloads\\programação\\mercado.txt", ios:: app);
+ if (escrita.is_open()){
  cout << "Digite o código: ";
  cin >> produtos.codigo;
  cout << "nome: ";
@@ -103,10 +111,17 @@ cin >> op;
  cin >> produtos.datav;
  caixadisp = caixadisp - produtos.preco*produtos.quantidade;
  cout << "Despesas: " << produtos.preco*produtos.quantidade << endl;
-
- cout << "caixa disponível: " << caixadisp;   
+ cout << "caixa disponível: " << caixadisp;
+ custos = produtos.preco*produtos.quantidade;
+ }  
+ escrita.close();
  break;
+ }
  case 2:
+ {
+ ifstream leitura;
+ leitura.open("Meusarquivos\\downloads\\programação\\mercado.txt");
+ if (leitura.is_open()){
  cout << "Digite o codigo do produto: "; cin >> produtos.codigo;
  cout << produtos.nome << endl;
  cout << "Digite a quanidade de saída: "; cin >> produtos.quantidade;
@@ -116,18 +131,23 @@ cin >> op;
  cout << "Data de validade: "; cin >> produtos.datav;
  caixadisp = caixadisp + (produtos.preco*produtos.quantidade);
  cout <<"Receita: " << produtos.preco*produtos.quantidade << endl;
- cout <<"Caixa disponível: " << caixadisp << endl ; 
+ cout <<"Caixa disponível: " << caixadisp << endl;
+ vendas = produtos.preco*produtos.quantidade ;
+ }
+leitura.close();
  break;
+ }
  case 3:
+ ifstream leitura;
+ leitura.open("Meusarquivos\\downloads\\programação\\mercado.txt");
+ if (leitura.is_open()){
  cout << "Digite o codigo do produto: "; cin >> produtos.codigo;
  cout << "Nome: " << produtos.nome << endl;
  cout << "Qantidade: " << produtos.quantidade;
  cout << "Data de Fabricação: " << produtos.dataf;
  cout << "Data de validade: " << produtos.datav;
- break;
- 
- default:
- cout << "Operação inexistente" << endl;
+ }
+ leitura.close();
  break;
   }
   return 0;
@@ -136,7 +156,9 @@ cin >> op;
 
 int pessoal() {
   system("clear");
-
+   std::ofstream escrita;
+ escrita.open("Meusarquivos\\downloads\\programação\\mercado.txt", ios:: app);
+ if (escrita.is_open()){
   REGfuncionarios funcionarios;
   cout << "CADASTRAR FUNCIONARIOS: " << endl;
   cout << "Nome do funcionario: \n" ; cin >> funcionarios.nome;
@@ -146,20 +168,26 @@ int pessoal() {
   cout << "Defina o salario: \n" ; cin >>  funcionarios.salario;
   cout << "Número do cadatro pessoal: " << endl;
   cin >> funcionarios.registro;
+  } else {
+  cout << "Erro ao abrir" << endl;
+  escrita.close();
+  }
   return 0;
 }
 
-float caixa(float Receita, float Despesa)
+float caixa()
 {
     float L;
     REGcaixa caixa;
     cout << "Caixa disponível: " << caixadisp << endl;
-    cout << "Receita: " << endl; cin >> caixa.venda;
-    caixa.venda = Receita;
-    cout << "Despesas: " << endl; cin >> caixa.saida;
-    caixa.saida = Despesa;
+    cout << " Outras Receita: " << endl; cin >> caixa.venda;
+    cout << "Outras Despesas: " << endl; cin >> caixa.saida;
     caixa.lucro =  caixa.venda - caixa.saida;
+    caixa.venda = vendas;
+    caixa.saida = custos;
     L = caixa.lucro;
-    cout << "Lucro = "<< caixa.lucro << endl; /*Caso seja negativo é prejuízo*/
+    cout << "Lucro Financeiro = "<< caixa.lucro << endl; 
+    caixadisp = caixadisp + L;
+    /*Caso seja negativo é prejuízo*/
     return L;
     }
