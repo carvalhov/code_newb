@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <string.h>
  
 using namespace std;
 
@@ -14,7 +15,8 @@ struct REGprodutos{
 };
  
 struct REGfuncionarios{
- char nome [50];
+ char nome [30];
+ char cargo[30];
  int idade;
  char sexo;
  float salario;
@@ -88,7 +90,6 @@ int main (void)
 int cadastrar() {
   system("clear");
 REGprodutos produtos;
-int quantidadeq[produtos.codigo];
 int op = 0;
 cout << "1 - cadastro de produtos" << endl;
 cout << "2 - saida de produtos" << endl;
@@ -102,27 +103,27 @@ cin >> op;
  if (escrita.is_open()){
  cout << "Digite o código: ";
  cin >> produtos.codigo;
- escrita << produtos.codigo <<"\n";
+ escrita << produtos.codigo <<" ";
  cout << "nome: ";
  cin >> produtos.nome;
- escrita << produtos.nome <<"\n";
+ escrita << produtos.nome <<" ";
  cout << "quantidade: ";
  cin >> produtos.quantidade;
- escrita << produtos.quantidade <<"\n";
+ escrita << produtos.quantidade <<" ";
  cout << "Preço: ";  
  cin >> produtos.preco; 
- escrita << produtos.preco << "\n";
+ escrita << produtos.preco << " ";
  cout << "Data de Fabricação: ";
  cin >> produtos.dataf;
- escrita << produtos.dataf << "\n";
+ escrita << produtos.dataf << " ";
  cout << "Data de validade: "; 
  cin >> produtos.datav;
- escrita << produtos.datav << "\n";
+ escrita << produtos.datav << " \n";
  caixadisp = caixadisp - produtos.preco*produtos.quantidade;
  cout << "Despesas: " << produtos.preco*produtos.quantidade << endl;
  cout << "caixa disponível: " << caixadisp;
  custos = produtos.preco*produtos.quantidade;
- quantidadeq[produtos.codigo] = quantidadeq[produtos.codigo] + produtos.quantidade;
+
  }  else {
    cout << "Erro ao abrir" << endl;
  }
@@ -145,7 +146,6 @@ cin >> op;
  cout <<"Receita: " << produtos.preco*produtos.quantidade << endl;
  cout <<"Caixa disponível: " << caixadisp << endl;
  vendas = produtos.preco*produtos.quantidade ;
-quantidadeq[produtos.codigo] = quantidadeq[produtos.codigo] - produtos.quantidade;
  
  } else {
    cout << "Erro ao abrir" << endl;
@@ -185,19 +185,22 @@ int pessoal() {
  if (escrita.is_open()){
 
   cout << "CADASTRAR FUNCIONARIOS: \n" << endl;
-  cout << "Nome do funcionario: \n" ; cin>> funcionarios.nome;
-  cin.getline(funcionarios.nome, 50);
-  escrita << funcionarios.nome;
+  cout << "Nome do funcionario: \n" ; cin >> funcionarios.nome;
+  cin.getline(funcionarios.nome, 30);
+  escrita << funcionarios.nome << " ";
+  cout << "Cargo: " << endl; cin >> funcionarios.cargo;
+  cin.getline(funcionarios.cargo, 30);
+  escrita << funcionarios.cargo << " "; 
   cout << "Idade: \n" ; cin >> funcionarios.idade;
-  escrita << funcionarios.idade; 
+  escrita << funcionarios.idade << " "; 
   cout << "Qual o gênero(M OU F): " << endl;
   cin >> funcionarios.sexo;
-  escrita << funcionarios.sexo;
+  escrita << funcionarios.sexo << " " ;
   cout << "Defina o salario: \n" ; cin >>  funcionarios.salario;
-  escrita << funcionarios.salario;
+  escrita << funcionarios.salario << " ";
   cout << "Número do cadatro pessoal: " << endl;
   cin >> funcionarios.registro;
-  escrita << funcionarios.registro;
+  escrita << funcionarios.registro << " \n";
   
   } else {
   cout << "Erro ao abrir" << endl;
@@ -222,4 +225,3 @@ float caixa()
     /*Caso seja negativo é prejuízo*/
     return L;
     }
-       
