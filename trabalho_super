@@ -47,7 +47,7 @@ int main (void)
  cout << "\n\n              SUPERMIXER - SORTIDOS\n\n"  << endl;
  cout << "Sistema de gerenciamento  - 2020" << endl;
  cout << "1 - Configuração Estoque de produtos " << endl;
- cout << "2 - Área de funcionário " << endl;
+ cout << "2 - Cadastrar funcionários" << endl;
  cout << "3 - Consultar saldos do caixa" << endl;
  cout << "4 - Sair" << endl;
  cin >> op;
@@ -71,8 +71,9 @@ int main (void)
        float L = caixa();
        cout << "\n\ncaixa disponível: " << caixadisp;
        cout << "\n\nlucro: " << L << endl;
-       cout << "Novo caixa disponível"; 
        caixadisp = caixadisp + L;
+       cout << "Caixa disponível atualizado: " << caixadisp << endl;
+
        break;
        }
        default:
@@ -86,8 +87,8 @@ int main (void)
  
 int cadastrar() {
   system("clear");
-int quantidadeq = 0;
 REGprodutos produtos;
+int quantidadeq[produtos.codigo];
 int op = 0;
 cout << "1 - cadastro de produtos" << endl;
 cout << "2 - saida de produtos" << endl;
@@ -115,7 +116,7 @@ cin >> op;
  cout << "Despesas: " << produtos.preco*produtos.quantidade << endl;
  cout << "caixa disponível: " << caixadisp;
  custos = produtos.preco*produtos.quantidade;
- quantidadeq = quantidadeq + produtos.quantidade;
+ quantidadeq[produtos.codigo] = quantidadeq[produtos.codigo] + produtos.quantidade;
  }  else {
    cout << "Erro ao abrir" << endl;
  }
@@ -138,7 +139,7 @@ cin >> op;
  cout <<"Receita: " << produtos.preco*produtos.quantidade << endl;
  cout <<"Caixa disponível: " << caixadisp << endl;
  vendas = produtos.preco*produtos.quantidade ;
- quantidadeq = quantidadeq - produtos.quantidade;
+quantidadeq[produtos.codigo] = quantidadeq[produtos.codigo] - produtos.quantidade;
  
  } else {
    cout << "Erro ao abrir" << endl;
@@ -153,7 +154,7 @@ leitura.close();
  cout << "\nDigite o codigo do produto: ";
  cin >> produtos.codigo;
  cout << "\nNome: " << produtos.nome;
- cout << "\nQantidade: " << quantidadeq;
+ cout << "\nQantidade: " << quantidadeq[produtos.codigo];
  cout << "\nData de Fabricação: " << produtos.dataf;
  cout << "\nData de validade: " << produtos.datav;
  }else {
@@ -182,6 +183,7 @@ int pessoal() {
   cout << "Defina o salario: \n" ; cin >>  funcionarios.salario;
   cout << "Número do cadatro pessoal: " << endl;
   cin >> funcionarios.registro;
+  cout << "\n\n" << funcionarios.nome << " a partir de agora fará parte da empresa\n SUPERMIXER, tendo " << funcionarios.idade << " anos e sendo portador do CPF de\n número: " << funcionarios.registro << " recebera um salario de " << funcionarios.salario << "." << "\nProcesso de cadastro encerrado com sucesso, deeem boas vindas ao novo funcionário" << endl;  
   } else {
   cout << "Erro ao abrir" << endl;
   escrita.close();
@@ -194,7 +196,7 @@ float caixa()
     float L;
     REGcaixa caixa;
     cout << "Caixa disponível: " << caixadisp << endl;
-    cout << " Outras Receita: " << endl; cin >> caixa.venda;
+    cout << " Outras Receitas: " << endl; cin >> caixa.venda;
     cout << "Outras Despesas: " << endl; cin >> caixa.saida;
     caixa.lucro =  caixa.venda - caixa.saida;
     caixa.venda = vendas;
