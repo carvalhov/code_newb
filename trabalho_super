@@ -3,7 +3,7 @@
 #include <string>
  
 using namespace std;
- 
+
 struct REGprodutos{
  int codigo; /*1, 2, 3, 4 e 5*/
  char nome[10];
@@ -102,16 +102,22 @@ cin >> op;
  if (escrita.is_open()){
  cout << "Digite o código: ";
  cin >> produtos.codigo;
+ escrita << produtos.codigo <<"\n";
  cout << "nome: ";
  cin >> produtos.nome;
+ escrita << produtos.nome <<"\n";
  cout << "quantidade: ";
  cin >> produtos.quantidade;
+ escrita << produtos.quantidade <<"\n";
  cout << "Preço: ";  
  cin >> produtos.preco; 
+ escrita << produtos.preco << "\n";
  cout << "Data de Fabricação: ";
  cin >> produtos.dataf;
+ escrita << produtos.dataf << "\n";
  cout << "Data de validade: "; 
  cin >> produtos.datav;
+ escrita << produtos.datav << "\n";
  caixadisp = caixadisp - produtos.preco*produtos.quantidade;
  cout << "Despesas: " << produtos.preco*produtos.quantidade << endl;
  cout << "caixa disponível: " << caixadisp;
@@ -129,7 +135,7 @@ cin >> op;
  leitura.open("Meusarquivos\\downloads\\programação\\mercado.txt");
  if (leitura.is_open()){
  cout << "Digite o codigo do produto: "; cin >> produtos.codigo;
- cout << produtos.nome << endl;
+ cout << produtos.nome; 
  cout << "Digite a quanidade de saída: "; cin >> produtos.quantidade;
  cout << "Preço: ";  
  cin >> produtos.preco; 
@@ -154,9 +160,13 @@ leitura.close();
  cout << "\nDigite o codigo do produto: ";
  cin >> produtos.codigo;
  cout << "\nNome: " << produtos.nome;
- cout << "\nQantidade: " << quantidadeq[produtos.codigo];
+ leitura >> produtos.nome;
+ cout << "\nQantidade: " << produtos.quantidade;
+ leitura >> produtos.quantidade;
  cout << "\nData de Fabricação: " << produtos.dataf;
+ leitura >> produtos.dataf;
  cout << "\nData de validade: " << produtos.datav;
+ leitura >> produtos.datav;
  }else {
    cout << "Erro ao abrir" << endl;
  }
@@ -171,23 +181,28 @@ int pessoal() {
   system("clear");
   REGfuncionarios funcionarios;
   std::ofstream escrita;
- escrita.open("Meusarquivos\\downloads\\programação\\mercado.txt", ios:: app);
+ escrita.open("Meusarquivos\\downloads\\programação\\Gestaodepessoas.txt", ios:: app);
  if (escrita.is_open()){
 
   cout << "CADASTRAR FUNCIONARIOS: \n" << endl;
   cout << "Nome do funcionario: \n" ; cin>> funcionarios.nome;
   cin.getline(funcionarios.nome, 50);
-  cout << "Idade: \n" ; cin >> funcionarios.idade; 
+  escrita << funcionarios.nome;
+  cout << "Idade: \n" ; cin >> funcionarios.idade;
+  escrita << funcionarios.idade; 
   cout << "Qual o gênero(M OU F): " << endl;
   cin >> funcionarios.sexo;
+  escrita << funcionarios.sexo;
   cout << "Defina o salario: \n" ; cin >>  funcionarios.salario;
+  escrita << funcionarios.salario;
   cout << "Número do cadatro pessoal: " << endl;
   cin >> funcionarios.registro;
-  cout << "\n\n" << funcionarios.nome << " a partir de agora fará parte da empresa\n SUPERMIXER, tendo " << funcionarios.idade << " anos e sendo portador do CPF de\n número: " << funcionarios.registro << " recebera um salario de " << funcionarios.salario << "." << "\nProcesso de cadastro encerrado com sucesso, deeem boas vindas ao novo funcionário" << endl;  
+  escrita << funcionarios.registro;
+  
   } else {
   cout << "Erro ao abrir" << endl;
-  escrita.close();
   }
+  escrita.close();
   return 0;
 }
 
@@ -207,3 +222,4 @@ float caixa()
     /*Caso seja negativo é prejuízo*/
     return L;
     }
+       
