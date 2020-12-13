@@ -1,7 +1,5 @@
-#include <iostream>
+#include <iostream> 
 #include <fstream>
-#include <string>
-#include <string.h>
  
 using namespace std;
 
@@ -15,7 +13,7 @@ struct REGprodutos{
 };
  
 struct REGfuncionarios{
- char nome [30];
+ char nome [50];
  char cargo[30];
  int idade;
  char sexo;
@@ -137,7 +135,7 @@ cin >> op;
  if (leitura.is_open()){
  cout << "Digite o codigo do produto: "; cin >> produtos.codigo;
  cout << produtos.nome; 
- cout << "Digite a quanidade de saída: "; cin >> produtos.quantidade;
+ cout << "Digite a quantidade de saída (-): "; cin >> produtos.quantidade;
  cout << "Preço: ";  
  cin >> produtos.preco; 
  cout << "Data de Fabricação: "; cin >> produtos.dataf;
@@ -159,14 +157,14 @@ leitura.close();
  if (leitura.is_open()){
  cout << "\nDigite o codigo do produto: ";
  cin >> produtos.codigo;
- cout << "\nNome: " << produtos.nome;
- leitura >> produtos.nome;
+ cout << "\nNome: " ;
+ leitura.getline(produtos.nome, 10);
  cout << "\nQantidade: " << produtos.quantidade;
  leitura >> produtos.quantidade;
- cout << "\nData de Fabricação: " << produtos.dataf;
- leitura >> produtos.dataf;
- cout << "\nData de validade: " << produtos.datav;
- leitura >> produtos.datav;
+ cout << "\nData de Fabricação: "; 
+ leitura.getline(produtos.dataf, 10);
+ cout << "\nData de validade: ";
+ leitura.getline(produtos.dataf, 10);
  }else {
    cout << "Erro ao abrir" << endl;
  }
@@ -186,7 +184,7 @@ int pessoal() {
 
   cout << "CADASTRAR FUNCIONARIOS: \n" << endl;
   cout << "Nome do funcionario: \n" ; cin >> funcionarios.nome;
-  cin.getline(funcionarios.nome, 30);
+  cin.getline(funcionarios.nome, 50);
   escrita << funcionarios.nome << " ";
   cout << "Cargo: " << endl; cin >> funcionarios.cargo;
   cin.getline(funcionarios.cargo, 30);
