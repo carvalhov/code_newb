@@ -1,6 +1,8 @@
 Respostas da lista:
 
-1) A utilidade do conhecimento de ponteiros se dá devido a necessidade da alocação de memória em códigos um pouco mais avançados
+1)
+
+A utilidade do conhecimento de ponteiros se dá devido a necessidade da alocação de memória em códigos um pouco mais avançados
 onde tem-se por objetivo atividades ao qual exigem mais dos endereços ao qual o programa trabalha como troca, referenciação e etc. 
 A importância é notória, pois com a utilização do ponteiro é possível evitar que alguns erros relacionados a conflitos de memória
 ocorram em um programa (ao qual representam uma boa parte dos erros em códigos) e também na fluídez do código, ao qual sabe-se onde
@@ -9,4 +11,27 @@ de compreender a sua aplicação.
 
 
 2) 
+
+trecho base:
+//*
+int i=3,j=5;
+int *p, *q;
+p = &i;
+q = &j;
+*//
+
+p == &i;
+
+*p - *q;    // -2 
+
+**&p;   //  3 
+
+3 - *p/(*q) + 7;    // 10     (entretanto, se expecificar as casas decimais será 9,4.
+
+
+3)
+
+
+
+
 
