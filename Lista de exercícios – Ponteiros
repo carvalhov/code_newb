@@ -1,0 +1,12 @@
+Respostas da lista:
+
+1) A utilidade do conhecimento de ponteiros se dá devido a necessidade da alocação de memória em códigos um pouco mais avançados
+onde tem-se por objetivo atividades ao qual exigem mais dos endereços ao qual o programa trabalha como troca, referenciação e etc. 
+A importância é notória, pois com a utilização do ponteiro é possível evitar que alguns erros relacionados a conflitos de memória
+ocorram em um programa (ao qual representam uma boa parte dos erros em códigos) e também na fluídez do código, ao qual sabe-se onde
+os elementos estão alocados, sendo engenharia uma disciplina ao qual programação é essencial em alguns ramos, mostra-se a importância 
+de compreender a sua aplicação. 
+
+
+2) 
+
