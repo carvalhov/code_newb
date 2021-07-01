@@ -1,6 +1,6 @@
 Respostas da lista:
 
-1)
+1))))))
 
 A utilidade do conhecimento de ponteiros se dá devido a necessidade da alocação de memória em códigos um pouco mais avançados
 onde tem-se por objetivo atividades ao qual exigem mais dos endereços ao qual o programa trabalha como troca, referenciação e etc. 
@@ -10,7 +10,8 @@ os elementos estão alocados, sendo engenharia uma disciplina ao qual programaç
 de compreender a sua aplicação. 
 
 
-2) 
+
+2))))))
 
 trecho base:
 //*
@@ -20,18 +21,158 @@ p = &i;
 q = &j;
 *//
 
-p == &i;
+p == &i; //  0x28ff44 
 
 *p - *q;    // -2 
 
 **&p;   //  3 
 
-3 - *p/(*q) + 7;    // 10     (entretanto, se expecificar as casas decimais será 9,4.
+3 - *p/(*q) + 7;    // 10     (entretanto, se expecificar as casas decimais será 9,4.  
 
 
-3)
+
+ 
+ 
+3)))))) Mostre o que será impresso por programa supondo que i ocupa o endereço 4094 na memória.
+
+main(){
+  int i=5, *p;
+  p = &i;
+  printf("%x %d %d %d %d", p,*p+2,**&p,3**p,**&p+4);
+} 
+RESPOSTA: 0x28ff44, 7, 5. 15 e 9 
 
 
+
+
+
+4 )))))) Se i e j são variáveis inteiras e p e q ponteiros para int, quais das seguintes expressões de atribuição são ilegais?
+
+a. p = &i;          CORRETA 
+b. *q = &j; ERRADA
+c. p = &*&i;        CORRETA
+d. i = (*&)j; ERRADA
+e. i = *&j;         CORRETA
+f. i = &&j; ERRADA
+g. q = *p; ERRADA
+h. i = (*p)` + *q;  CORRETA
+
+
+
+
+
+5)))))) Determine o que será mostrado pelo seguinte programa (compile-o, execute-o e verifique se foram obtidas as respostas esperadas).
+
+
+NO CÓDIGO HAVIA UMA PARTE AO QUAL DEU ERRO, ONDE ENCONTRAVA-SE  ---  p5'; ---, AS ASPA SEGUINTE AO p5 GERAVA ERRO, LOGO EU OPTEI POR ALTERAR PARA
+" p5++; " fazendo com que o valor final fosse distinto. 
+
+SAÍDA:
+20 
+29.0 
+P 
+e 
+P 
+e 
+t 
+31 
+45 
+27 
+31 
+45 
+27
+
+
+
+
+
+6)))))))) 
+(AS ÚNICAS MUDANÇAS NO CÓDIGO FORAM ESPAÇOS NA PARTE DO "printf()" PARA QUE A VISUALIZAÇÃO FOSSE MAIS FÁCIL.) 
+
+
+SAÍDA:
+contador/valor/valor/endereco/endereco
+i = 0 vet[0] = 1.1 *(f + 0) = 1.1 &vet[0] = E830E430 (f + 0) = E830E430 
+i = 1 vet[1] = 2.2 *(f + 1) = 2.2 &vet[1] = E830E434 (f + 1) = E830E434 
+i = 2 vet[2] = 3.3 *(f + 2) = 3.3 &vet[2] = E830E438 (f + 2) = E830E438 
+i = 3 vet[3] = 4.4 *(f + 3) = 4.4 &vet[3] = E830E43C (f + 3) = E830E43C 
+i = 4 vet[4] = 5.5 *(f + 4) = 5.5 &vet[4] = E830E440 (f + 4) = E830E440 
+
+A saída seguiu o esperado, se eu fosse pensar em mudar alguma coisa, seria talvez alterar "i=0" para "i=1", assim o array ficaria igual ao que foi 
+entregue no código (vet[5]).
+
+
+
+
+
+
+7))))))
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+int x[10];
+int *px, i;
+px = x;
+for( i = 0; i < 10; i++){
+  x[i] = i+1;
+}
+for( i = 0; i < 10; i++){
+  cout << x[i] << ", ";
+}
+cout << "\n\n";
+
+cout << &x    << "   " << px << "   " << *(px+0) << endl;
+cout << &x[0] << "   " << px+1 << "   " << *(px+1)<< endl;
+cout << &x[1] << "   " << px+2 << "   " << *(px+2)<<endl;
+cout << &x[2] << "   " << px+3 << "   " << *(px+3) <<endl;
+cout << &x[3] << "   " << px+4 << "   " << *(px+4)<<endl;
+return 0;
+}
+
+SAÍDA: 
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
+
+0x7fffa1bc64c0   0x7fffa1bc64c0   1
+0x7fffa1bc64c0   0x7fffa1bc64c4   2
+0x7fffa1bc64c4   0x7fffa1bc64c8   3
+0x7fffa1bc64c8   0x7fffa1bc64cc   4
+0x7fffa1bc64cc   0x7fffa1bc64d0   5
+
+
+COMO É POSSÍVEL PERCEBER, EM &x[2], ao qual é o terceiro elemento, ondereço é equivalente ao de px + 2, ao que quer dizer que há uma equivalencia entre ambos, logo
+
+RESPOSTA: D) Pulo + 2;
+
+
+
+
+
+
+
+
+8)))))
+
+int mat[4], *p, x;
+
+
+ p = mat + 1;     VÁLIDA (ponteiro p recebe o array de mat+1, logo, indica que p recebe o endereço de mat +1 inteiro, logo, 4 bytes a frente
+ p = mat;         VÁLIDA (ponteiro p recebe o primeiro elemento do array mat[4]
+ p =`mat;         INVÁLIDA (a aspas fazem com que seja ilegível) 
+ x = (*mat);      VÁLIDA (para ser sincero, copilou, mas eu não necessariamente entendi o valor resultado, mas sei que não destacou erros no programa) 
+ 
+ 
+ 
+ 
+ 
+ 9))))))
+ 
+ RESPOSTA: OS DOIS PROGRAMAS SÃO DIFERENTES POIS O PRIMEIRO IMPRIME OS ELEMENTOS NA SAÍDA, ENQUANTO O ÚLTIMO IMPRIME OS ENDEREÇOS DOS ELEMENTOS. 
+ 
+ 
+ 
 
 
 
