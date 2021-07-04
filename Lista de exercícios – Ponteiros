@@ -1,6 +1,6 @@
 Respostas da lista:
 
-1))))))
+1) Qual a utilidade do aprendizado do uso de ponteiro para aplicações em engenharia?
 
 A utilidade do conhecimento de ponteiros se dá devido a necessidade da alocação de memória em códigos um pouco mais avançados
 onde tem-se por objetivo atividades ao qual exigem mais dos endereços ao qual o programa trabalha como troca, referenciação e etc. 
@@ -11,9 +11,8 @@ de compreender a sua aplicação.
 
 
 
-2))))))
+2) Seja o seguinte trecho de programa:
 
-trecho base:
 //*
 int i=3,j=5;
 int *p, *q;
@@ -21,7 +20,9 @@ p = &i;
 q = &j;
 *//
 
-p == &i; //  0x28ff44 
+Determine o valor das seguintes expressões:
+
+p == &i; // 
 
 *p - *q;    // -2 
 
@@ -33,35 +34,36 @@ p == &i; //  0x28ff44
 
  
  
-3)))))) Mostre o que será impresso por programa supondo que i ocupa o endereço 4094 na memória.
+3) Mostre o que será impresso por programa supondo que i ocupa o endereço 4094 na memória.
 
 main(){
   int i=5, *p;
   p = &i;
   printf("%x %d %d %d %d", p,*p+2,**&p,3**p,**&p+4);
 } 
+
 RESPOSTA: 0x28ff44, 7, 5. 15 e 9 
 
 
 
 
 
-4 )))))) Se i e j são variáveis inteiras e p e q ponteiros para int, quais das seguintes expressões de atribuição são ilegais?
+4 ) Se i e j são variáveis inteiras e p e q ponteiros para int, quais das seguintes expressões de atribuição são ilegais?
 
-a. p = &i;          CORRETA 
-b. *q = &j; ERRADA
-c. p = &*&i;        CORRETA
-d. i = (*&)j; ERRADA
-e. i = *&j;         CORRETA
-f. i = &&j; ERRADA
-g. q = *p; ERRADA
-h. i = (*p)` + *q;  CORRETA
-
-
+a. p = &i;         // CORRETA 
+b. *q = &j;        // ERRADA
+c. p = &*&i;       // CORRETA
+d. i = (*&)j;      // ERRADA
+e. i = *&j;        // CORRETA
+f. i = &&j;        // ERRADA
+g. q = *p;         // ERRADA
+h. i = (*p)` + *q; // CORRETA
 
 
 
-5)))))) Determine o que será mostrado pelo seguinte programa (compile-o, execute-o e verifique se foram obtidas as respostas esperadas).
+
+
+5) Determine o que será mostrado pelo seguinte programa (compile-o, execute-o e verifique se foram obtidas as respostas esperadas).
 
 
 NO CÓDIGO HAVIA UMA PARTE AO QUAL DEU ERRO, ONDE ENCONTRAVA-SE  ---  p5'; ---, AS ASPA SEGUINTE AO p5 GERAVA ERRO, LOGO EU OPTEI POR ALTERAR PARA
@@ -86,7 +88,10 @@ t
 
 
 
-6)))))))) 
+6) Determine o que será mostrado pelo seguinte programa (compile-o, execute-o e verifique se
+foram obtidas as respostas esperadas). 
+
+
 (AS ÚNICAS MUDANÇAS NO CÓDIGO FORAM ESPAÇOS NA PARTE DO "printf()" PARA QUE A VISUALIZAÇÃO FOSSE MAIS FÁCIL.) 
 
 
@@ -106,7 +111,8 @@ entregue no código (vet[5]).
 
 
 
-7))))))
+7) Assumindo que pulo[] é um vetor do tipo int, quais das seguintes expressões referenciam o
+valor do terceiro elemento do vetor?
 
 
 #include <iostream>
@@ -153,10 +159,11 @@ RESPOSTA: Pulo + 2;
 
 
 
-8)))))))
+8) Considerando a declaração:
 
 int mat[4], *p, x;
 
+quais das seguintes expressões são válidas? Justifique.
 
  p = mat + 1;     VÁLIDA (ponteiro p recebe o array de mat+1, logo, indica que p recebe o endereço de mat +1 inteiro, logo, 4 bytes a frente
  p = mat;         VÁLIDA (ponteiro p recebe o primeiro elemento do array mat[4]
@@ -168,16 +175,35 @@ int mat[4], *p, x;
  
  
  
- 9))))))))
+ 9) O que fazem os seguintes programas em C?
  
- RESPOSTA: OS DOIS PROGRAMAS SÃO DIFERENTES POIS O PRIMEIRO IMPRIME OS ELEMENTOS NA SAÍDA, ENQUANTO O ÚLTIMO IMPRIME OS ENDEREÇOS DOS ELEMENTOS. 
+ int main(){
+  int vet[] = {4,9,13};
+  int i;
+  for(i=0;i<3;i++){
+  printf("%d ",*(vet+i));
+  }
+}
+int main(){
+  int vet[] = {4,9,13};
+  int i;
+  for(i=0;i<3;i++){
+  printf("%X ",vet+i);
+  }
+}
+ 
+ RESPOSTA: OS DOIS PROGRAMAS SÃO DIFERENTES POIS O PRIMEIRO IMPRIME OS ELEMENTOS DE VET[] NA SAÍDA, ENQUANTO O ÚLTIMO IMPRIME OS ENDEREÇOS DOS ELEMENTOS. 
  
  
  
  
  
  
- 10))))))))
+ 10) Seja x um vetor de 4 elementos, declarado da forma TIPO x[4]. Suponha que depois da
+declaração, x esteja armazenado no endereço de memória 4092 (ou seja, o endereço de x[0]).
+Suponha também que na máquina seja usada uma variável do tipo char ocupa 1 byte, do tipo
+int ocupa 2 bytes, do tipo float ocupa 4 bytes e do tipo double ocupa 8 bytes. Quais serão os
+valores de x+1, x+2 e x+3 se:
  
  A ))))) Se x for declarado como Char: teremos &x = 4092
  se (x+1) = 4093 ; se (x+2) = 4094; e se x+3 = 4095 
@@ -281,10 +307,6 @@ Assim como na questão, o double aumenta de 8 em 8 bytes
 
 
 
-
-
-
-
 11 ) Suponha que as seguintes declarações tenham sido realizadas:
 
 Identifique quais dos seguintes comandos é válido ou inválido:
@@ -298,7 +320,6 @@ f. coisas[5] = aloha;         //  INVALIDO (tipos incompatíveis)
 g. pf = value;                //  INVALIDO (incomatibilidade entre as variáveis) 
 h. pf = aloha;                //  VÁLIDO (recebe o endereço inicial do array) 
  
-
 
 
 
