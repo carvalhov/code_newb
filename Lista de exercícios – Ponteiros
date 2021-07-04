@@ -144,7 +144,7 @@ SAÍDA:
 
 COMO É POSSÍVEL PERCEBER, EM &x[2], ao qual é o terceiro elemento, ondereço é equivalente ao de px + 2, ao que quer dizer que há uma equivalencia entre ambos, logo
 
-RESPOSTA: D) Pulo + 2;
+RESPOSTA: Pulo + 2;
 
 
 
@@ -191,8 +191,12 @@ int mat[4], *p, x;
  D ))))) Se x[4] for declarado como double: teremos &x = 4092
  se (x+1) = 4100 ; se (x+2) = 4108; e se x+3 = 4116 
  
- 
- CÓDIGO em C++: 
+
+Implemente um programa de computador para testar estas suposições e compare as respostas
+oferecidas pelo programa com as respostas que você idealizou.
+
+
+CÓDIGO em C++: 
  
  #include <iostream>
 using namespace std;
@@ -273,4 +277,62 @@ Assim como na questão, o char aumenta de 1 em 1 bytes
 Diferente da questão, o int aumenta de 4 em 4 bytes 
 Assim como na questão, o float aumenta de 4 em 4 bytes 
 Assim como na questão, o double aumenta de 8 em 8 bytes 
+
+
+
+
+
+
+
+
+11 ) Suponha que as seguintes declarações tenham sido realizadas:
+
+Identifique quais dos seguintes comandos é válido ou inválido:
+
+a. aloha[2] = value;          //  VÁLIDO
+b. scanf("%f", &aloha);       //  VÁLIDO (Compila, mas exige a o número de arrays, exemplo 'aloha[10]')
+c. aloha = "value";           //  INVALIDO (aloha é tipo float, enquanto "value" é uma variável char)
+d. printf("%f", aloha);       //  VÁLIDO (compila, mas exige o número específico do array, exemplo: aloha[2])  
+e. coisas[4][4] = aloha[3];   //  VÁLIDO 
+f. coisas[5] = aloha;         //  INVALIDO (tipos incompatíveis)
+g. pf = value;                //  INVALIDO (incomatibilidade entre as variáveis) 
+h. pf = aloha;                //  VÁLIDO (recebe o endereço inicial do array) 
+ 
+
+
+
+
+
+
+12) O que é um ponteiro para uma função? Pesquise na Internet referências sobre o assunto e
+escreva um pequeno programa exemplificando o uso deste recurso.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
