@@ -179,6 +179,98 @@ int mat[4], *p, x;
  
  10))))))))
  
+ A ))))) Se x for declarado como Char: teremos &x = 4092
+ se (x+1) = 4093 ; se (x+2) = 4094; e se x+3 = 4095 
+ 
+ B ))))) Se x[4] for declarado como int: teremos &x = 4092
+ se (x+1) = 4094 ; se (x+2) = 4096; e se x+3 = 4098 
+ 
+ C ))))) Se x[4] for declarado como float: teremos &x = 4092
+ se (x+1) = 4096 ; se (x+2) = 4100; e se x+3 = 4104 
+ 
+ D ))))) Se x[4] for declarado como double: teremos &x = 4092
+ se (x+1) = 4100 ; se (x+2) = 4108; e se x+3 = 4116 
+ 
+ 
+ CÓDIGO em C++: 
+ 
+ #include <iostream>
+using namespace std;
+
+int main() {
+char x[4];
+char *x1;
+x1 = x;
+cout << "Endereço de char: "<< &x << "  " << &x[1] << " " << &x[2]<< endl;
+int y[4];
+int *x2;
+x2 = y;
+cout << "Endereço de int: "<< &y << endl;
+float z[4];
+float *x3;
+x3 = z;
+cout << "Endereço de float: "<< &z << endl;
+double w[4];
+double *x4;
+x4 = w;
+cout << "Endereço de double: "<< &w << endl;
+
+cout << x1 << " " << (x1 + 1) << " " << (x1 + 2) << " " << (x1 + 3)<< endl; 
+cout << x2 << " " << (x2 + 1) << " " << (x2 + 2) << " " << (x2 + 3)<< endl; 
+cout << x3 << " " << (x3 + 1) << " " << (x3 + 2) << " " << (x3 + 3)<< endl; 
+cout << x4 << " " << (x4 + 1) << " " << (x4 + 2) << " " << (x4 + 3)<< endl; 
+
+return 0;
+}
 
 
+SAÍDA: 
+
+Endereço de char: 0x7ffcbdeea858   
+Endereço de int: 0x7ffcbdeea840
+Endereço de float: 0x7ffcbdeea820
+Endereço de double: 0x7ffcbdeea7f0
+   
+0x7ffcbdeea840 0x7ffcbdeea844 0x7ffcbdeea848 0x7ffcbdeea84c   // AUMENTA DE 4 EM 4 BYTES
+0x7ffcbdeea820 0x7ffcbdeea824 0x7ffcbdeea828 0x7ffcbdeea82c   // AUMENTA DE 4 EM 4 BYTES 
+0x7ffcbdeea7f0 0x7ffcbdeea7f8 0x7ffcbdeea800 0x7ffcbdeea808   // AUMENTA DE 8 EM 8 BYTES  
+ 
+
+CÓDIGO EM C: 
+
+#include <stdio.h>
+#include <stdlib.h>
+
+ int main(void){
+  unsigned vet[4];
+  char *y;
+    y = vet;
+  int *x;
+    x = vet;
+  float *z;
+    z = vet;
+  double *w;
+    w = vet;
+  printf("Endereço = %x %x %x %x\n", y, y+1, y+2, y+3);
+  printf("Endereço = %x %x %x %x\n", x, x+1, x+2, x+3);
+  printf("Endereço = %x %x %x %x\n", z, z+1, z+2, z+3);
+  printf("Endereço = %x %x %x %x\n", w, w+1, w+2, w+3);
+  return 0;
+}
+
+SAÍDA: 
+
+Endereço = 52edf260 52edf261 52edf262 52edf263
+Endereço = 52edf260 52edf264 52edf268 52edf26c
+Endereço = 52edf260 52edf264 52edf268 52edf26c
+Endereço = 52edf260 52edf268 52edf270 52edf278
+
+
+NESSE CASO, ONDE DEFINIU-SE UM UNSIGNED ARRAY, FOI POSSÍVEL ASSOCIAR TODAS AS VARIÁVEIS AO MESMO E ACOMPANHAR A DIFERENÇA ENTRE O ENDEREÇOS 
+E O 'CHAR' NÃO FOI OMITIDO, ONDE PERCEBE-SE QUE: 
+
+Assim como na questão, o char aumenta de 1 em 1 bytes
+Diferente da questão, o int aumenta de 4 em 4 bytes 
+Assim como na questão, o float aumenta de 4 em 4 bytes 
+Assim como na questão, o double aumenta de 8 em 8 bytes 
 
