@@ -153,7 +153,7 @@ RESPOSTA: D) Pulo + 2;
 
 
 
-8)))))
+8)))))))
 
 int mat[4], *p, x;
 
@@ -167,11 +167,17 @@ int mat[4], *p, x;
  
  
  
- 9))))))
+ 
+ 9))))))))
  
  RESPOSTA: OS DOIS PROGRAMAS SÃO DIFERENTES POIS O PRIMEIRO IMPRIME OS ELEMENTOS NA SAÍDA, ENQUANTO O ÚLTIMO IMPRIME OS ENDEREÇOS DOS ELEMENTOS. 
  
  
+ 
+ 
+ 
+ 
+ 10))))))))
  
 
 
