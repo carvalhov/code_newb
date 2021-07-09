@@ -495,14 +495,30 @@ Utilizando os conhecimentos que você obteve com sua pesquisa, meça os tempos d
 das implementações que você criou para os dois problemas de ordenação anteriores e compare
 os resultados obtidos.
 
+Biblioteca adicional 
+
+include <time.h>
+
+ clock_t start = clock(); // No início do código.
+    // Execuatable code
+    clock_t stop = clock(); // Ao fim do código 
+    double elapsed = (double)(stop - start) * 1000.0 / CLOCKS_PER_SEC;
+    printf("Time elapsed in ms: %f", elapsed);
+
+Para o programa da questão 14:
+SAÍDA:
+
+Time elapsed in ms: 0.244000
+
+Para o programa da questão 15:
+SAÍDA: 
+
+Time elapsed in ms: 0.263000
 
 
-
-
-
-
-
-
+R: Logo, o programa da questão 14 foi mais rápid, algo que me surpreendeu, já que acreditava que pelo fato que ser float 
+iria demandar mais tempo, entrentanto não sei necessariamente se isso é um retrato verdadeiro, já que o código da questão 14 não aparenta 
+entregar o resultado esperado, enquanto que a 15 faz o ordenamento corretamente. 
 
 
 
