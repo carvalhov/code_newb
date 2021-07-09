@@ -402,7 +402,49 @@ de ordenação. Para isso, sua função deverá receber, entre outros argumentos
 a função de comparação.
 
 
+R: Esse código não é meu no todo, eu utilizei a base dos comparadores e fiz o resto, fazendo com que os valores de 
+de ordenação fossem definidos por n. 
+EU não realmente consegui fazer as questões anteriores e foi mais por falta de estudo do que realmente incapacidade 
+eu acredito. 
 
+#include <stdio.h>
+#include <stdlib.h>
+
+int comparador(const void *a, const void *b) {
+   return ( *(int*)a - *(int*)b );
+}
+
+int comparador2(const void *a, const void *b) {
+   if (*(int*)a > *(int*)b) {
+      return 1;
+   } else if (*(int*)a < *(int*)b) {
+      return -1;
+   } else {
+      return 0;
+   }
+}
+
+int main () {
+   int i, n;
+   printf("Defina a quantidade de elemntos do array: ");
+   scanf("%d", &n);
+   
+   // 
+   int val[n];
+   printf("Elementos do array: ");
+    for( i = 0 ; i < n; i++ ) {
+      scanf("%d", &val[i]);
+    }
+   //ordena o array
+   qsort(val, n, sizeof(int), comparador);
+
+   //mostra os valores do array
+   for( i = 0 ; i < n; i++ ) {
+      printf("%i ", val[i]);
+   }
+
+   return(0);
+}
 
 
 
