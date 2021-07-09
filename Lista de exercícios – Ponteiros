@@ -377,21 +377,56 @@ apresente em ordem crescente. Utilize alocação dinâmica de memória para real
 
 
 
-
-
-
-
 14. Reimplemente o programa da questão anterior utilizando a função qsort() do C. Comente o seu
 código, explicando o que faz cada uma das linhas.
 
+Como eu não fiz a 13, tentei usar o 15 como base só para tentar entender as dificuldades com o 
+float: 
+
+#include <stdio.h>
+#include <stdlib.h>
+
+float comparador(const void *a, const void *b) {
+   return ( *(float*)a - *(float*)b );
+}
+
+float comparador2(const void *a, const void *b) {
+   if (*(float*)a > *(float*)b) {
+      return 1;
+   } else if (*(float*)a < *(float*)b) {
+      return -1;
+   } else {
+      return 0;
+   }
+}
+
+int main () {
+   int n;
+   // Define a quantidade n de elementos no array
+   printf("Defina a quantidade de elementos: ");
+   scanf("%d", &n);
+   
+   //Define os elementos do array
+   float val[n];
+   printf("Elementos do array: ");
+    for(int i = 0 ; i < n; i++ ) {
+      scanf("%f", &val[i]);
+    }
+   //ordena o array
+   qsort(val, n, sizeof(float), comparador);
+
+   //mostra os valores do array
+   for(int i = 0 ; i < n; i++ ) {
+      printf("%.2f ", val[i]);
+   }
+
+   return(0);
+}
 
 
-
-
-
-
-
-
+Apesar de usar o código da outra como base, o comparador parace entrar em conflito e eu fiz as entradas e saídas algumas 
+vez e deu para perceber basicamente o código 'ignora' os comparadores, pois as vezes fica em ordem crescente, as vezes decrescente e as vezes até mesmo 
+sem uma ordem bem definida. 
 
 
 
