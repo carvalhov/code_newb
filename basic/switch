@@ -1,0 +1,10 @@
+switch( variable ){
+    case value1:
+        // commands
+        break;
+    case value2:
+        // commands
+        break;
+    default:
+        // commands
+}
