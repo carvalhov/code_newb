@@ -17,12 +17,15 @@ if (x > 0) {
     cout << "Q4";
   }
 }
-else {
+if (x < 0) {
   if(y > 0){
     cout << "Q2";   
   }
   if(y < 0){
     cout << "Q3";
   }
+}
+if (x == 0 or y ==0){
+  cout << "eixos";
 }
 }
