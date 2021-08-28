@@ -1,3 +1,4 @@
+/*Exemplo:
 switch( variable ){
     case value1:
         // commands
@@ -7,4 +8,28 @@ switch( variable ){
         break;
     default:
         // commands
+}
+*/
+
+#include <iostream>
+using namespace std;
+int main()
+{
+int sorvete; 
+cin >> sorvete;
+cout << "Sabor ";
+switch(sorvete){
+case 1: 
+cout << "Napolitano";
+break;
+case 2: 
+cout << "chocolate";
+break;
+case 3:
+cout << "Baunilha";
+break;
+default: 
+cout << "indisponível";
+break;
+}
 }
