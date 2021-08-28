@@ -1,0 +1,48 @@
+if( condition1 ){
+    // if condition 1 is true
+}
+
+else if( condition2 ){
+    // if condition 1 is false and condition 2 is true
+}
+
+
+if( condition1 ){
+    // if condition 1 is true
+}
+else if( condition2 ){
+    // if condition 1 is false and condition 2 is true
+}
+else if( condition3 ){
+    // if condition2 is false and condition3 is true
+}
+else if( condition4 ){
+    // if condition3 is false and condition4 is true
+}
+else{
+    // if condition 4 is false
+}
+
+
+#include <iostream>
+using namespace std;
+int main()
+{
+const int p1=2, p2=3;
+float value1, value2, average;
+cin >> value1;
+cin >> value2;
+average = (value1*p1+value2*p2)/(p1+p2);
+
+if (average >= 7) {
+  cout << "Aprovado";
+}
+else if (average < 3) {
+  cout << "Reprovado";
+}
+else{
+  cout << "Final";
+}
+return 0;
+}
+
