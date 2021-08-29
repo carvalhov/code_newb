@@ -1,0 +1,13 @@
+for(initialization; condition; increment){
+	//Code
+}
+
+#include <iostream>
+using namespace std;
+
+int main(){
+  const int num = 20;
+	for(int i = 1; i <= num ; i++){
+	cout << " " << i;
+}
+}
