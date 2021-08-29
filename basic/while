@@ -2,3 +2,18 @@ while(condition){
 	// Code
 }
 
+#include <iostream>
+using namespace std;
+
+int main(){
+	int i = 1;           // Defini o valor de inicial de i 
+	while(i<=20){        // Sabendo que i será menor ou igual a 20, segue a repetiçãp
+  cout << i << " ";          // Escreve o valor de i e dá espaço 
+		i = i+1;     // Agora, essa parte faz a diferença, pois com o i+1, o valor de i aumenta e a o while repete
+		                fazendo com que o de 'i' aumente até que seja igual a 20, seguindo a condição. 
+	}
+}
+
+out: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+
+
