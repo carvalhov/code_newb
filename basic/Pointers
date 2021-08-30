@@ -1,0 +1,39 @@
+A pointer is a variable that has access to a memory position.
+The value of a pointer is a memory position. That is, it stores the address of a certain memory position.
+This way, a pointer "points" to a certain memory location.
+The declaration of a pointer follows the template below:
+
+<type> *<name>;
+
+sizeof(int) = 4
+sizeof(float) = 4
+sizeof(double) = 8
+sizeof(char) = 1
+
+The numbers represente the size in bytes at the memory, a char is stored in 1 byte. 
+
+//
+
+Por exemplo:
+
+int *ponteiro;
+
+#include <stdio.h>
+
+int main(){
+    int var = 123; // Defini-se uma variável constante 
+
+    int *point = &var; //*point está recebendo endereço de var, logo o valor de var estará ocupando esse endereço 
+
+    printf("%d\n", *point); // point é o endereço e *point será o valor contido no endereço. 
+ 
+    *point = 789; // Veja que *pointer está recebendo um novo valor para o mesmo endereço. 
+
+    printf("%d\n", var); //Como o endereço de var foi recebido por *pointer, se há uma alteração nos 
+    elementos do ponteiro, haverá uma alteração no contéudo do mesmo.  
+}
+/* Output:
+123
+789
+
+*/
