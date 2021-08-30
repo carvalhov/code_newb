@@ -37,3 +37,34 @@ int main(){
 789
 
 */
+
+
+#include <stdio.h>
+
+int swap(int *a, int *b){
+    int aux = *a;
+
+    *a = *b;
+
+    *b = aux;
+
+    printf("swap -> a = %d and b = %d\n", *a, *b);
+}
+
+int main(){
+    int a = 1;
+
+    int b = 2;
+
+    printf("main -> a = %d and b = %d\n", a, b);
+
+    exchange(&a, &b);
+
+    printf("main -> a = %d and b = %d\n", a, b);
+}
+/* Output:
+main -> a = 1 and b = 2
+swap -> a = 2 and b = 1
+main -> a = 2 and b = 1
+
+*/
