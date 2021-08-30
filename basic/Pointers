@@ -38,6 +38,9 @@ int main(){
 
 */
 
+If you create a function that should have an effect on the original variable, and not just the copies created by the function,
+passing the reference is much simpler and easier than creating a mechanism that takes the variable values used in a function
+and assigns them to other variables of other functions. It is also less risky than using global variables.
 
 #include <stdio.h>
 
