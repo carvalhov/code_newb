@@ -1,0 +1,27 @@
+what is an array?
+
+Arrays store a set of variables.
+In C, the arrays are homogeneous. That is, the variables stored by an array are all of the same type.
+
+What is an array for?
+
+An array is generally used to create several variables of the same type in a simple way.
+We can also use arrays to automate tasks.
+
+<type> <name>[<size>];
+
+Por exemplo:
+string name[50];
+int x[10];
+char nome [15];
+
+O array define o size (tamanho), onde é previsto a quantidade de elementos, onde a memória abre espaço para
+que seja possível armazenar os dados, por exemplo, ali onde há int x[10], sabemos que int ocupa 4 bytes, de forma que
+ao criar esse array, tem-se 40 bytes sendo criado (4*10). Uma forma de acessar esses bytes é usar *(x) para x[0]
+*(x+1) para x[1] ... *(x+9) para x[9].
+
+Expressando sem valor definido: 
+
+int x[] = {1, 2, 3}; // x has 3 elements
+
+
