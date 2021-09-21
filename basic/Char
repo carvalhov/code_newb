@@ -1,0 +1,31 @@
+char c; // variable c stores a character
+
+#include <stdio.h>
+
+int main(){
+    printf("%d\n", sizeof(char));
+}
+/* Output:
+1
+
+*/
+
+char c = 'x'; // variable c receives the character 'x' and stores it
+char c = x; // variable c receives the value stored in variable x
+
+Se x representar um valor númerico definido, char c, receberá  o valor ao qual ele guardou. 
+
+
+char c = 65; // variable c is given the value 'A'
+
+
+
+#include <stdio.h>
+
+int main(){
+    char x;
+
+    x = getchar(); // variable x receives the value of the character typed by the user
+
+    putchar(x); // the value of the variable x eh printed
+}
