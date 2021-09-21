@@ -1,0 +1,75 @@
+
+<type> <name>[<arrays>][<size>];
+
+Por exemplo: 
+int matriz [3][10];
+
+Logo, uma matriz de tipo inteiro, com 3 arrays cada um com 10 elementos. 
+
+
+#include <stdio.h>
+
+int main(){
+    int m[5][5];
+
+    printf("Size in bytes of an integer -> %d\n", sizeof(int));
+    printf("Byte size of array m[0] -> %d\n", sizeof(m[0]));
+    printf("Byte size of matrix m -> %d\n", sizeof(m));
+    printf("Number of arrays in the matrix m -> %d\n", sizeof(m)/sizeof(m[0]));
+    printf("Number of elements in the matrix m -> %d\n", sizeof(m)/sizeof(int));
+}
+/* Exit:
+Size in bytes of an integer -> 4
+Byte size of array m[0] -> 20
+Byte size of matrix m -> 100
+Number of arrays in the matrix m -> 5
+Number of elements in the matrix m -> 25
+
+*/
+
+// Copiado do NepsAcademy
+
+#include <stdio.h>
+
+int main(){
+    // declare and initialize all elements
+    int m[2][3] = {{1, 2, 3}, {4, 5, 6}};
+
+        /* Note:
+            The declaration: int m[2][3] = {1, 2, 3, 4, 5, 6}; would also be valid,
+        because the compiler would already separate the elements into arrays in the appropriate sizes,
+        filling in with 0's what was missing at the end.
+        */
+
+    // assign using square brackets
+    m[0][0] = 123;
+
+    // assign using pointers arithmetic
+    *(*(m+1)+2) = 789;
+
+    // read using square brackets
+    scanf("%d", &m[0][2]);
+
+    // read using pointers arithmetic
+    scanf("%d", *(m+1)+1);
+
+        /* Note:
+            Please note that we only use one asterisk, as we do not want to access
+        access the element, but get your address
+        */
+
+    for(int line=0;line<2;line++){
+        for(int column=0;column<3;column++){
+            printf("%d ", m[row][column]);
+        }
+        printf("\n");
+    }
+}
+/* Output to an input with the numbers 13 and 21:
+123 2 13
+4 21 789
+
+*/
+
+// Copiado do NepsAcademy
+
