@@ -1,0 +1,109 @@
+char name[15];
+
+Uma string é um array de characters. 
+
+printf("%s", name); //abcdef
+printf("%s", name+1); // bcdef
+printf("%s", name+2); // cdef
+
+Para qualquer array, é importante compreender a posição ao qual os elementos se encontram, não é muito 
+diferente para a string. 
+
+
+Common mistakes
+
+*It is not possible to compare strings as normal variables.
+
+*You cannot make assignments of strings as normal variables. See the code below:
+nt main(){
+    char n1[10], n2[10];
+    scanf("%s", n1);
+    n2 = n1;
+    printf("%s %s", n1, n2);
+    
+*We can't read names with spaces using the scanf normally.
+
+
+
+Library string.h
+
+What is the string.h library?
+Strlen function.
+Strcpy function.
+Strcmp function.
+Strcat function.
+Strstr function.
+Coding: Using the Library.
+
+
+
+*strlen function
+A function that expects to receive a memory location that contains a string and will return how many characters there are between the received location and the next '\0'.
+
+Example:
+
+char s[10] = "abcd";
+printf("%d", strlen(s) ); // Prints 4
+
+**strcpy function
+A function that expects to receive two memory positions containing strings and will assign the second string to the first.
+
+Example:
+
+char a[10] = "abcd";
+char b[10];
+
+strcpy(b, a); //b receives a
+printf("%s\n", b); // Prints "abcd"
+
+
+***strcmp function
+A function that expects to receive two memory positions containing strings and will lexicographically compare the strings.
+
+If str1 == str2, returns 0
+If str1 < str2, returns -1
+If str1 > str2, returns 1
+An example of the use of the function would be:
+
+int main(){
+    char n1[20];
+    char n2[20];
+
+    scanf("%s %s", n1, n2);
+
+    if(strcmp(n1, n2) == 0){
+        printf("equal strings");
+    }
+    if(strcmp(n1, n2) == -1){
+        printf ("first is smaller");
+    }
+    if(strcmp(n1, n2) == 1){
+        printf ("second is smaller");
+    }
+}
+
+****strcat function
+A function that expects to receive two memory positions containing strings and will concatenate the second string in the first.
+
+Example:
+
+char name[50] = "neps";
+strcat(name, " academy"); //name = "neps academy"
+printf("%s\n", name); // Prints "neps academy"
+
+*****trstr function
+A function that expects to receive two memory positions containing strings and returns the first memory position of the first that contains the second.
+
+char name[50] = "academy";
+printf("%s", strstr(name, "de") ); //Prints "demy
+
+int main(){
+    char n1[20] = "academy";
+    if(strstr(n1, "xx") == NULL){
+        printf ("Not contained");
+    }else{
+        printf("Contained\n");
+    }
+}
+
+Se a string não se apresenta, volta NULL 
