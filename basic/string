@@ -91,7 +91,7 @@ char name[50] = "neps";
 strcat(name, " academy"); //name = "neps academy"
 printf("%s\n", name); // Prints "neps academy"
 
-*****trstr function
+*****strstr function
 A function that expects to receive two memory positions containing strings and returns the first memory position of the first that contains the second.
 
 char name[50] = "academy";
